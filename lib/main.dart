@@ -1,3 +1,4 @@
+import 'package:allocator/pages/register.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,15 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Land Allocator',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
+        fontFamily: 'Poppins',
         primarySwatch: Colors.green,
       ),
       home: const InitPage(),
@@ -57,11 +50,12 @@ class _InitPageState extends State<InitPage> {
                       fit: BoxFit.cover)),
             ),
             Container(
-              height: 200,
+              height: 80,
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.only(left: 30, right: 10),
               child: const Text(
                 'Welcome to Land Allocation And Usage System',
+                textAlign: TextAlign.center,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,
@@ -69,12 +63,17 @@ class _InitPageState extends State<InitPage> {
               ),
             ),
             Container(
-              color: Colors.white,
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(50))),
               width: 200,
               height: 70,
               child: TextButton(
                 child: const Text('Get Started'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Register()));
+                },
               ),
             )
           ],
